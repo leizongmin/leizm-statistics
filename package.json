@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --require ts-node/register src/test.ts",
-    "compile": "rm -rf dist && tsc"
+    "compile": "rm -rf dist && tsc",
+    "prepublish": "npm run compile"
   },
   "repository": {
     "type": "git",
