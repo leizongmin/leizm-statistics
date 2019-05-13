@@ -1,8 +1,13 @@
 {
   "name": "@leizm/statistics",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "@leizm/statistics 简单统计模块",
-  "main": "index.js",
+  "main": "dist/statistics.js",
+  "typings": "dist/statistics.d.ts",
+  "files": [
+    "dist/statistics.js",
+    "dist/statistics.d.ts"
+  ],
   "scripts": {
     "test": "mocha --require ts-node/register src/test.ts",
     "compile": "rm -rf dist && tsc",
