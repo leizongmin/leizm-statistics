@@ -1,12 +1,25 @@
+/**
+ * 统计类型
+ * counter = 计数器，得到 counter
+ * samples = 采样，得到 counter, max, min, avg
+ * data = 任意数据
+ */
 export type IStatisticsType = "counter" | "samples" | "data";
 
 export interface ITagItem {
+  /** 统计类型 */
   type: IStatisticsType;
+  /** 标题 */
   title: string;
+  /** 计数 */
   counter: number;
+  /** 最小值 */
   min: number;
+  /** 最大值 */
   max: number;
+  /** 平均值 */
   avg: number;
+  /** 数据 */
   data: any;
 }
 
@@ -95,7 +108,10 @@ export class Statistics {
     }
   }
 
-  public jsonReport() {
+  /**
+   * 获得当前报告
+   */
+  public report() {
     const list: any[] = [];
     this.tags.forEach((item, tag) => {
       if (item.type === "counter") {
@@ -146,6 +162,9 @@ export class Statistics {
     };
   }
 
+  /**
+   * 清空统计信息（一般与 report() 配合使用）
+   */
   public flush() {
     this.tags.forEach(item => {
       item.counter = 0;

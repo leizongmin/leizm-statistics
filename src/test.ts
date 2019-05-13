@@ -7,7 +7,7 @@ describe("Statistics", function() {
     s.init("samples", "aa");
     const nums = [8, 2, 3, 4, 3, 2, 1, 7, 6, 9, 20, 15, 12];
     nums.forEach(n => s.add("aa", n));
-    const ret = s.jsonReport();
+    const ret = s.report();
     const item = ret.list[0];
     expect(item.type).to.equal("samples");
     expect(item.tag).to.equal("aa");
@@ -22,7 +22,7 @@ describe("Statistics", function() {
     s.init("samples", "aa");
     const nums = [8, 2];
     nums.forEach(n => s.add("aa", n));
-    const ret = s.jsonReport();
+    const ret = s.report();
     const item = ret.list[0];
     expect(item.type).to.equal("samples");
     expect(item.tag).to.equal("aa");
@@ -38,7 +38,7 @@ describe("Statistics", function() {
     for (let i = 0; i < 100; i++) {
       s.incr("aa");
     }
-    const ret = s.jsonReport();
+    const ret = s.report();
     const item = ret.list[0];
     expect(item.type).to.equal("counter");
     expect(item.tag).to.equal("aa");
