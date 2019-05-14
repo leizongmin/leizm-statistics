@@ -10,7 +10,7 @@ npm install @leizm/statistics --save
 ## 使用
 
 ```typescript
-import { Statistics } from "@leizm/statistics";
+import Statistics from "@leizm/statistics";
 
 // 创建实例
 const s = new Statistics();
