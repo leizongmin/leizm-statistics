@@ -23,10 +23,25 @@ export interface ITagItem {
   data: any;
 }
 
+export interface IReportItem {
+  /** 统计类型 */
+  type: IStatisticsType;
+  /** 标签 */
+  tag: string;
+  /** 计数 */
+  counter?: number;
+  /** 最小值 */
+  min?: number;
+  /** 最大值 */
+  max?: number;
+  /** 平均值 */
+  avg?: number;
+  /** 数据 */
+  data?: any;
+}
+
 export class Statistics {
   protected readonly tags: Map<string, ITagItem> = new Map();
-  protected readonly pid: number = process.pid;
-  public appName?: string;
 
   /**
    * 获取指定标签的数据
@@ -111,7 +126,7 @@ export class Statistics {
   /**
    * 获得当前报告
    */
-  public report() {
+  public report(): IReportItem[] {
     const list: any[] = [];
     this.tags.forEach((item, tag) => {
       if (item.type === "counter") {
@@ -154,12 +169,7 @@ export class Statistics {
         });
       }
     });
-    return {
-      pid: this.pid,
-      appName: this.appName,
-      time: new Date(),
-      list,
-    };
+    return list;
   }
 
   /**

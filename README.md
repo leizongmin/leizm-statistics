@@ -26,6 +26,22 @@ s.set("memory_usage", process.memoryUsage());
 
 // 获取当前结果
 console.log(s.report());
+// 输出结果如下：
+// [ { tag: 'request_count', type: 'counter', counter: 1 },
+//   { tag: 'response_time',
+//     type: 'samples',
+//     counter: 1,
+//     min: 0.1,
+//     max: 0.1,
+//     avg: 0.1 },
+//   { tag: 'memory_usage',
+//     type: 'data',
+//     data:
+//      { rss: 25255936,
+//        heapTotal: 10731520,
+//        heapUsed: 7370176,
+//        external: 9037 } } ]
+
 // 清空当前结果（用于下一周期统计）
 s.flush();
 ```
